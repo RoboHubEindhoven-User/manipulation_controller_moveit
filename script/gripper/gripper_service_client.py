@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import rospy
-from gripper_ur.srv import *
+from manipulation_controller_moveit.srv import *
 
 def gripper_client(size_to_open):
     rospy.init_node('gripper_service_client')
