@@ -4,7 +4,7 @@ import rospy
 import serial
 import glob
 import serial.tools.list_ports
-from gripper_ur.srv import *
+from manipulation_controller_moveit.srv import *
 from sensor_msgs.msg import JointState as JointStateGripper
 
 class Gripper(object):
