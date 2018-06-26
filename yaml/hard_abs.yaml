@@ -1,0 +1,28 @@
+cam: !!python/object/new:geometry_msgs.msg._PoseStamped.PoseStamped
+  state:
+  - !!python/object/new:std_msgs.msg._Header.Header
+    state:
+    - 0
+    - !!python/object/new:rospy.rostime.Time
+      state: [1526975406, 145724058]
+    - /world
+  - !!python/object/new:geometry_msgs.msg._Pose.Pose
+    state:
+    - !!python/object/new:geometry_msgs.msg._Point.Point
+      state: [0.26816012777740683, -0.13208735444198588, 0.4061893078700106]
+    - !!python/object/new:geometry_msgs.msg._Quaternion.Quaternion
+      state: [0.2899935293398638, 0.631890833300309, -0.27869034016110267, 0.6625325818651784]
+first: !!python/object/new:geometry_msgs.msg._PoseStamped.PoseStamped
+  state:
+  - !!python/object/new:std_msgs.msg._Header.Header
+    state:
+    - 0
+    - !!python/object/new:rospy.rostime.Time
+      state: [1526975374, 187467098]
+    - /world
+  - !!python/object/new:geometry_msgs.msg._Pose.Pose
+    state:
+    - !!python/object/new:geometry_msgs.msg._Point.Point
+      state: [0.155839337394634, -0.00942034080534343, 0.5069894102966911]
+    - !!python/object/new:geometry_msgs.msg._Quaternion.Quaternion
+      state: [0.03160805888230094, 0.006108748109529522, -0.42159829724326375, 0.9062110623755417]

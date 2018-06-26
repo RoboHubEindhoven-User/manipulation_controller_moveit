@@ -1,0 +1,9 @@
+#Define the goal
+string type 		#Specify what you want to do, pick&place, camera, home
+geometry_msgs/Pose pose #Specify the pose you want to pick at.(only pick&place
+---
+#Define the result
+string end_status
+---
+#Define the feedback message
+string status
