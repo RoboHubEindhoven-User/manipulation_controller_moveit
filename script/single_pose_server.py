@@ -6,7 +6,7 @@ import rospy
 import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
-from ur_modern_driver.srv import *
+from manipulation_controller_moveit.srv import *
 
 class SinglePose(object):
     def __init__(self):

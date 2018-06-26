@@ -6,14 +6,14 @@ import rospy
 import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
-from ur_modern_driver.srv import *
+from manipulation_controller_moveit.srv import *
 import yaml
 import actionlib
 from std_msgs.msg import Float64
 from std_msgs.msg import Bool
 import roslib
-from ur_modern_driver.msg import *
-from faraday_gripper.srv import *
+from manipulation_controller_moveit.msg import *
+from manipulation_controller_moveit.srv import *
 
 class ArmStateMachine:
     def __init__(self):
@@ -23,7 +23,7 @@ class ArmStateMachine:
         self.group = moveit_commander.MoveGroupCommander("manipulator")
         #print self.group.get_current_pose()
         self.copied_pose = {}
-        self.addr = "/home/user/catkin_ws/src/ur_modern_driver/yaml/ros2.yaml"
+        self.addr = "/home/user/catkin_ws/src/manipulation_controller_moveit/yaml/ros2.yaml"
         # Publishers for the gripper:
         self.gripper_pub = rospy.Publisher('valueGripper', Float64, queue_size=10)
         self.led_pub = rospy.Publisher('valueLED', Bool, queue_size=10)
@@ -35,6 +35,8 @@ class ArmStateMachine:
         self.server.start()
 
         self.prepick_height = 0.05
+
+        self.statemachines()
     
     # pose_name needs to be a raw_input() if manual
     def get_pose_from_yaml(self, pose_name):
@@ -106,7 +108,8 @@ class ArmStateMachine:
         self.server.publish_feedback(self.feedback)
         x.preform_pose('cam')
 
-    def statemachines(self, types):
+    def statemachines(self):
+        types = raw_input("Do you want to go to 'pick', 'cam' or 'home'")
         if types == 'pick' :
             
             #x.preform_pose('cam')
@@ -131,22 +134,24 @@ class ArmStateMachine:
             #self.gripper_client(18.5)
             rospy.sleep(3.0)
             self.pre_place(self.get_pose_from_yaml('place').pose)
-            #x.preform_pose('cam')
+            self.preform_pose('home')
             
             
             
         elif types == 'cam':
-            x.preform_pose('cam')
+            self.preform_pose('cam')
             self.led_pub.publish(True)
             rospy.sleep(5.0)
             self.led_pub.publish(False)
-            x.preform_pose('first')
+            
             
         elif types == 'home':
             x.preform_pose('home')
-           
-        else:
-            rospy.spin()
+
+        else: 
+            print "No states will be preformed because input was not correct"
+
+        
 
 
     def execute(self, goal):
@@ -163,9 +168,7 @@ class ArmStateMachine:
 if __name__ == '__main__':
     try:
         x = ArmStateMachine()
-        x.statemachines(raw_input("type = pick, cam or home"))
-        rospy.spin()
-        
+             
         
     except rospy.ROSInterruptException:
         pass

@@ -1,11 +1,11 @@
 #! /usr/bin/env python
 
 import roslib
-roslib.load_manifest('ur_modern_driver')
+roslib.load_manifest('manipulation_controller_moveit')
 import rospy
 import actionlib
 
-from ur_modern_driver.msg import MoveArmAction, MoveArmGoal
+from manipulation_controller_moveit.msg import MoveArmAction, MoveArmGoal
 
 def feed(feedb):
     print feedb

@@ -13,6 +13,20 @@
       state: [0.0, 0.0, 0.0]
     - !!python/object/new:geometry_msgs.msg._Quaternion.Quaternion
       state: [0.0, 0.0, 0.0, 1.0]
+cam: !!python/object/new:geometry_msgs.msg._PoseStamped.PoseStamped
+  state:
+  - !!python/object/new:std_msgs.msg._Header.Header
+    state:
+    - 0
+    - !!python/object/new:rospy.rostime.Time
+      state: [1530042954, 473982095]
+    - /world
+  - !!python/object/new:geometry_msgs.msg._Pose.Pose
+    state:
+    - !!python/object/new:geometry_msgs.msg._Point.Point
+      state: [-0.22032319421862903, 0.40662562135389096, 0.5404279321878961]
+    - !!python/object/new:geometry_msgs.msg._Quaternion.Quaternion
+      state: [-0.2596308863472439, 0.6681289893361637, -0.6497050450440558, 0.2531379286228808]
 pick: !!python/object/new:geometry_msgs.msg._PoseStamped.PoseStamped
   state:
   - !!python/object/new:std_msgs.msg._Header.Header
