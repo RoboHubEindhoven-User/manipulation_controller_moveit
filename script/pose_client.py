@@ -60,7 +60,6 @@ class ArmStateMachine:
             print "Service call failed: %s" %e
 
     def send_pose(self, pose):
-        #TODO: Something goes wrong here, Alot of times you print service call failed:....
         rospy.wait_for_service('single_pose')
         try:
             pose_service = rospy.ServiceProxy('single_pose', PoseService)
@@ -163,6 +162,7 @@ class ArmStateMachine:
         self.result.end_status = 'done'
         self.server.set_succeeded(self.result)
         print "Statemachine done"
+        
 
 
 if __name__ == '__main__':

@@ -13,10 +13,10 @@ class Gripper(object):
         
         led_service = rospy.Service('led_control', Gripperv6Led, self.control_led)
 
-        self.mode_selector = rospy.get_param("~/mode", default="simulated")
-
+        self.mode_selector = rospy.get_param("~mode")
+	print self.mode_selector
         if (self.mode_selector == "real"):
-
+	    print "Trying to connect to gripper arduino"
             gripper_service = rospy.Service('/gripper_control', Gripperv6, self.control_gripper)
 
             #Start Serial port
